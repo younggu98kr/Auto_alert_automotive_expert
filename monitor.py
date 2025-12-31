@@ -2,6 +2,16 @@ import re
 import sys
 import json
 from urllib.parse import urljoin
+import certifi  # 맨 위 import들 근처에 추가
+
+def fetch_html(url: str) -> str:
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                      "(KHTML, like Gecko) Chrome/120.0 Safari/537.36"
+    }
+    r = requests.get(url, headers=headers, timeout=30, verify=certifi.where())
+    r.raise_for_status()
+    return r.text
 
 import requests
 
