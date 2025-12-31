@@ -2,9 +2,6 @@ name: KOICA Auto Alert
 
 on:
   schedule:
-    # GitHub Actions schedule은 UTC 기준이고,
-    # 너무 촘촘하게(예: 5분) 하면 정확히 안 돌 때도 있습니다.
-    # 하루 4번(6시간마다) 정도면 “놓침” 거의 없음.
     - cron: "0 */6 * * *"
   workflow_dispatch: {}
 
